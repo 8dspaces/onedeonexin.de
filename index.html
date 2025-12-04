@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>一德一信 | 上海一德一信咨询管理有限公司</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #004aad; color: white; padding: 40px 20px; text-align: center; }
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; display: none; }
+    section.active { display: block; }
+    .lang-switch { position: absolute; top: 20px; right: 20px; }
+    .lang-switch button { margin-left: 5px; padding: 6px 12px; cursor: pointer; border: 0; background: #f5f5f5; color: #004aad; font-weight: bold; }
+    h1 { margin: 0 0 10px; }
+    h2 { color: #004aad; }
+    footer { background: #002b5c; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button onclick="switchLang('cn')">中文</button>
+    <button onclick="switchLang('en')">English</button>
+    <button onclick="switchLang('de')">Deutsch</button>
+  </div>
+
+  <header id="header-cn" class="active">
+    <h1>一德一信</h1>
+    <p>上海一德一信咨询管理有限公司</p>
+    <p>提供一站式的数字解决方案</p>
+  </header>
+  <header id="header-en">
+    <h1>Yide Yixin</h1>
+    <p>Shanghai Yide Yixin Consulting Management Co., Ltd.</p>
+    <p>Providing one‑stop digital solutions</p>
+  </header>
+  <header id="header-de">
+    <h1>Yide Yixin</h1>
+    <p>Shanghai Yide Yixin Consulting Management Co., Ltd.</p>
+    <p>Bereitstellung von digitalen Komplettlösungen aus einer Hand</p>
+  </header>
+
+  <section id="intro-cn" class="active">
+    <h2>公司介绍</h2>
+    <p>我们面向企业与机构，提供从咨询、规划、实施到运维的全流程数字解决方案，助力业务高效、稳定、可持续地成长。</p>
+  </section>
+  <section id="intro-en">
+    <h2>About</h2>
+    <p>We deliver end‑to‑end digital solutions spanning consulting, planning, implementation, and operations to help organizations grow efficiently and sustainably.</p>
+  </section>
+  <section id="intro-de">
+    <h2>Über uns</h2>
+    <p>Wir bieten durchgängige digitale Lösungen von Beratung über Planung und Umsetzung bis zum Betrieb und unterstützen Unternehmen beim effizienten und nachhaltigen Wachstum.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 一德一信 · Shanghai Yide Yixin Consulting Management Co., Ltd.</p>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      var sets = {
+        cn: document.querySelectorAll('[id$="-cn"], #header-cn'),
+        en: document.querySelectorAll('[id$="-en"], #header-en'),
+        de: document.querySelectorAll('[id$="-de"], #header-de')
+      };
+      Object.keys(sets).forEach(function(key){
+        sets[key].forEach(function(el){
+          el.classList.toggle('active', key === lang);
+        });
+      });
+      document.documentElement.lang = lang === 'cn' ? 'zh-CN' : (lang === 'en' ? 'en' : 'de');
+    }
+  </script>
+</body>
+</html>
